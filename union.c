@@ -322,18 +322,16 @@ int main() {
 //위는 입력받는 구성이다. 다만 저장시 ascii코드에 따른 문자가 들어간다.
   int i=0;
 
-  while(i != list->size) {
-    if(list->head->val == '\0')
-      deleteAt(list,i);
-
-    list->head = list->head->next;
+  struct Node* temp2 = list->head;
+  while(temp2->val!='\n') {
+      if(isspace(temp2->val))
+         deleteAt(list,i);
+      temp2=temp2->next;
     i++;
   }
+  
 	print(list);
-//위는 공백지우고 다시 리스트 연결하는 구성
-
-  struct Node* temp = list->head;
-
+//위는 공백문자를 지우고 다시 리스트에 연결하는 구성
   
     int r;
 
